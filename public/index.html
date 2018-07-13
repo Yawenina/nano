@@ -10,10 +10,15 @@
 <body>
   <h1>Payment</h1>
   <div id="container"></div>
-
-  <script type="text/javascript" src="./app.bundle.js"></script>
+  <div id="my-modal-container-in-parent"></div>
   <script>
     Nano.Component.render({}, '#container');
+    // Nano.Modal.render({
+    //   closeModal() {
+    //     console.warn('modal....')
+    //     document.querySelector('#my-modal-container-in-parent').innerHTML = ''
+    //   }
+    // }, "#my-modal-container-in-parent");
   </script>
 </body>
 </html>

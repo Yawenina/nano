@@ -8,12 +8,11 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './public',
+    contentBase: './dist',
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'public'),
-    publicPath: "./public",
+    filename: '[name].[hash].js',
+    path: path.resolve(__dirname, 'dist'),
     library: "Nano",
     libraryTarget: "umd"
   },
@@ -27,5 +26,25 @@ module.exports = {
         loader: "babel-loader"
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'index',
+      template: path.resolve(__dirname, './public/index.html'),
+      filename: 'index.html',
+      inject: 'head'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Button',
+      template: path.resolve(__dirname, './public/button.html'),
+      filename: 'button.html',
+      inject: 'head'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Modal',
+      template: path.resolve(__dirname, './public/modal.html'),
+      filename: 'modal.html',
+      inject: 'head'
+    }),
+  ]
 };
