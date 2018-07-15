@@ -7,74 +7,21 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Component</title>
   <style>
-    .nanocashier__button {
-      font-size: 14px;
-      width: 200px;
-      height: 48px;
-      line-height: 48px;
-      border-radius: 160px;
-      text-align: center;
-      color: #fff;
-      border: 1px solid #1890ff;
-      background: #1890ff;
-      outline: none;
-      /*cursor: pointer;*/
-      transition: color .15s ease-in-out,
-                  background-color .15s ease-in-out,
-                  border-color .15s ease-in-out,
-                  box-shadow .15s ease-in-out;
+    html, body {
+      margin: 0;
+      border: 0;
+      padding: 0;
     }
-    .nanocashier__button:hover {
-      background-color: #40a9ff;
-      border-color: #40a9ff;
-    }
-    /*.nanoModal__wrapper {*/
-      /*opacity: 0;*/
-      /*position: fixed;*/
-      /*top: 0;*/
-      /*left: 0;*/
-      /*width: 100%;*/
-      /*height: 100%;*/
-      /*background-color: rgba(0, 0, 0, 0.8);*/
-    /*}*/
-    /*.nanoCheckout--active .nanoModal__wrapper {*/
-      /*opacity: 1;*/
-    /*}*/
   </style>
 </head>
 <body>
-  <h1>Component</h1>
   <script>
     document.body.appendChild(Nano.Button());
-  </script>
-  <div class="nanoModal__wrapper">
-  </div>
-  <script>
-    function addModal() {
-      const script = document.createElement('script');
-      script.innerHTML = `
-        Nano.Modal.render({
-          closeModal() {
-            document.querySelector('#my-modal-container-in-parent').innerHTML = '';
-          }
-      }, "#my-modal-container-in-parent");
-      `
-      window.parent.document.body.appendChild(script);
-    }
-    console.warn(Nano)
-    let hasModal = false;
-    const btn = document.querySelector('.nanocashier__button');
+    const btn = document.querySelector('.myButton__button');
     btn.addEventListener('click', function() {
-      if (hasModal) return;
-      addModal();
-      // Nano.Modal.renderTo(window.parent, {
-      //   closeModal() {
-      //     console.warn('modal....')
-      //     hasModal = false;
-      //   }
-      // }, "#my-modal-container-in-parent");
-      hasModal = true;
-    })
+      console.log('clicked');
+      Nano.Modal.renderTo(window.parent, {}, '#my-modal-container-in-parent');
+    });
   </script>
 </body>
 </html>

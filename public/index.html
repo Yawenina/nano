@@ -6,13 +6,22 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Parent</title>
+  <style>
+    html, body {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
   <h1>Payment</h1>
   <div id="container"></div>
   <div id="my-modal-container-in-parent"></div>
   <script>
-    Nano.Component.render({}, '#container');
+    Nano.Component.render({
+      biz: 'biz'
+    }, '#container');
     // Nano.Modal.render({
     //   closeModal() {
     //     console.warn('modal....')
